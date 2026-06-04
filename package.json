@@ -1,0 +1,20 @@
+{
+  "name": "@galaxyproject/brand-tokens",
+  "version": "0.1.0",
+  "description": "Canonical Galaxy brand design tokens (CSS custom properties) for Galaxy web properties.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/galaxyproject/galaxy-brand-tokens.git"
+  },
+  "type": "module",
+  "files": ["dist"],
+  "exports": {
+    "./theme.css": "./dist/theme.css",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "scripts": {
+    "build": "node scripts/generate.mjs",
+    "test": "node --test"
+  }
+}
