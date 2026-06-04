@@ -1,10 +1,17 @@
 name: release
+# Publishes @galaxyproject/brand-tokens to npm via OIDC trusted publishing on a
+# v* tag. No NPM_TOKEN and no 2FA OTP: GitHub mints a short-lived id-token that
+# npm verifies against the package's configured trusted publisher (npmjs.com ->
+# package Settings -> Trusted Publisher, pointing at this repo + release.yml).
+# The very first publish of a brand-new package name can't use this -- npm has
+# no package settings page to configure until the package exists -- so 0.1.0 was
+# bootstrapped by hand; tag-driven releases here start at 0.1.1.
 on:
   push:
     tags: ['v*']
 permissions:
   contents: read
-  id-token: write   # npm provenance
+  id-token: write   # OIDC trusted publishing + provenance
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -12,10 +19,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
+      # OIDC trusted publishing needs npm >= 11.5.1; Node 22 still ships npm 10.x.
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@latest
       - run: npm run build
       - run: git diff --exit-code dist/
-      - run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --provenance --access public
