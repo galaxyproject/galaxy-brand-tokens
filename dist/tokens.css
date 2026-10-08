@@ -32,9 +32,17 @@
   --color-light-bg: #edf4fa;
   --color-card-bg: #5d678d;
 
-  /* Accent/Highlight */
-  --color-accent: #ffd700;
-  --color-accent-hover: #ffe60d;
+  /* Highlight: the gold signature color, for CTAs, active states and accent bars */
+  --color-highlight: #ffd700;
+  --color-highlight-hover: #ffe60d;
+
+  /*
+   * Deprecated: use highlight. Tailwind/shadcn convention (and galaxy-ui) uses
+   * `accent` for the subtle hover surface behind menu items, so a gold
+   * `accent` means different things on different Galaxy properties.
+   */
+  --color-accent: var(--color-highlight);
+  --color-accent-hover: var(--color-highlight-hover);
 
   /* Pantone-style scales (shared with IWC) */
 

@@ -31,7 +31,8 @@ The color system is defined around **Galaxy brand tokens** (`galaxy-*`, `light-b
 | Galaxy Primary | `#25537b` | `galaxy-primary` | `bay-of-many` | Links, interactive elements, table headers |
 | Galaxy Gold | `#ffd700` | `galaxy-gold` | `gold-500` | Accents, active states, primary CTAs, border highlights |
 | Galaxy Gold Dark | `#d19e00` | `galaxy-gold-dark` | `gold-600` | Hover state on gold-background buttons |
-| Accent Hover | `#ffe60d` | `accent-hover` | `gold-400` | Hover state on gold-colored text links |
+| Highlight | `#ffd700` | `highlight` | `gold-500` | Same gold as `galaxy-gold`, under the name galaxy-ui shares |
+| Highlight Hover | `#ffe60d` | `highlight-hover` | `gold-400` | Hover state on gold-colored text links |
 | Chicago | `#58585a` | `galaxy-grey` | `chicago` | Body text, muted content |
 | Hokey-Pokey | `#d0bd2a` | (not yet) | `hokey-pokey-500` | Support gold for cross-property compatibility; not the primary accent |
 
@@ -82,7 +83,7 @@ Gold (`#ffd700`) is Galaxy's visual signature. Use it for:
 
 **Gold palette roles**:
 - Gold-background buttons darken on hover: `hover:bg-galaxy-gold-dark` (`#d19e00`)
-- Gold-colored text links brighten on hover: `hover:text-accent-hover` (`#ffe60d`)
+- Gold-colored text links brighten on hover: `hover:text-highlight-hover` (`#ffe60d`)
 - Softer olive-gold alternative for cross-property compatibility: `hokey-pokey-500` (`#d0bd2a`)
 
 ## 5. Typography
@@ -101,7 +102,8 @@ Gold (`#ffd700`) is Galaxy's visual signature. Use it for:
 | `galaxy-primary` | `#25537b` | Links, table headers, interactive elements |
 | `galaxy-gold` | `#ffd700` | CTAs, active states, accent borders, hero highlights |
 | `galaxy-gold-dark` | `#d19e00` | Hover on gold-bg buttons |
-| `accent-hover` | `#ffe60d` | Hover on gold-colored text links |
+| `highlight` | `#ffd700` | Same as `galaxy-gold`; the name galaxy-ui shares |
+| `highlight-hover` | `#ffe60d` | Hover on gold-colored text links |
 | `galaxy-grey` | `#58585a` | Body text, muted content |
 | `light-bg` | `#edf4fa` | Page background |
 | `medium-bg` | `#3c435c` | Sidebar borders, dark-section alternation |
@@ -128,3 +130,4 @@ Gold (`#ffd700`) is Galaxy's visual signature. Use it for:
 - Don't add gold borders to cards on dark backgrounds -- the white card IS the contrast
 - Don't use `bg-primary` expecting Galaxy blue -- `primary` is the near-black token; use `bg-galaxy-primary` for brand blue
 - Don't hardcode hex values where a token exists (use `bg-galaxy-primary`, not `bg-[#25537b]`)
+- Don't use `accent` / `accent-hover` in new work -- they're deprecated aliases of `highlight` / `highlight-hover`. In Tailwind/shadcn convention, and in galaxy-ui, `accent` is the subtle hover surface behind menu items, not gold
