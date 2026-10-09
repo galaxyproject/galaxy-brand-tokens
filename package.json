@@ -1,6 +1,6 @@
 {
   "name": "@galaxyproject/brand-tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Canonical Galaxy brand design tokens (CSS custom properties) for Galaxy web properties.",
   "license": "MIT",
   "repository": {
