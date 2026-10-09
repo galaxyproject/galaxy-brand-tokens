@@ -128,6 +128,6 @@ Gold (`#ffd700`) is Galaxy's visual signature. Use it for:
 - Don't use `text-blue-*` or `text-indigo-*` on links -- always `text-galaxy-primary`
 - Don't overuse gold -- if every element has a gold accent, the signature is lost
 - Don't add gold borders to cards on dark backgrounds -- the white card IS the contrast
-- Don't use `bg-primary` expecting Galaxy blue -- `primary` is the near-black token; use `bg-galaxy-primary` for brand blue
+- Don't assume shadcn-style names (`primary`, `accent`, `muted`, ...) mean the same thing on every property. This package doesn't define them; each property maps them onto its own palette. In galaxy-ui `primary` is Galaxy blue, while the Hub's transitional shadcn layer still makes `bg-primary` near-black. For brand-facing code that has to look the same everywhere, use the `galaxy-*` names (`bg-galaxy-primary`)
 - Don't hardcode hex values where a token exists (use `bg-galaxy-primary`, not `bg-[#25537b]`)
-- Don't use `accent` / `accent-hover` in new work -- they're deprecated aliases of `highlight` / `highlight-hover`. In Tailwind/shadcn convention, and in galaxy-ui, `accent` is the subtle hover surface behind menu items, not gold
+- Don't use `accent` / `accent-hover` in new work -- they're deprecated aliases of `highlight` / `highlight-hover`. In Tailwind/shadcn convention, in galaxy-ui and in the Hub's component layer, `accent` is the subtle hover surface behind menu items, not gold
